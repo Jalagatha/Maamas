@@ -55,7 +55,7 @@ class CookieAdapter(val context: Context, val list: ArrayList<CookieModelClassIt
 
             val scope = CoroutineScope(Dispatchers.IO)
             scope.launch {
-                val model = CartModel(null, list[position], 1)
+                val model = CartModel(null, list[position], 1, list[position].price.toInt())
                 db.db.cartDao().insertCookie(model)
             }
 

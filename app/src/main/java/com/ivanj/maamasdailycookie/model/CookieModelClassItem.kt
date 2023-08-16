@@ -20,7 +20,8 @@ data class CartModel(
     @PrimaryKey(autoGenerate = true)
     val cid: Int? = null,
     @Embedded val cookie: CookieModelClassItem,
-    var quantity: Int = 0
+    var quantity: Int = 0,
+    var total:Int = 0
 )
 //{
 //    fun increment() : Int {

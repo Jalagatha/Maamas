@@ -10,7 +10,7 @@ import androidx.room.Update
 @Dao
 interface CartDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCookie(cartModel: CartModel)
 
     @Query("SELECT * FROM cartModel")

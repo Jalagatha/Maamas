@@ -25,6 +25,8 @@ class CartFragment : Fragment() {
 
     private lateinit var _binding: FragmentCartBinding
     private val binding get() = _binding
+
+    private var sum = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,7 +46,7 @@ class CartFragment : Fragment() {
             findNavController().navigate(R.id.itemsFragment)
         }
 
-        val db = DBBuilder(requireContext()).db
+        val db = DBBuilder(requireContext())
         binding.apply {
 
 
@@ -52,17 +54,18 @@ class CartFragment : Fragment() {
 
                 withContext(Dispatchers.IO) {
                     val arrayList = ArrayList<CartModel>()
-                    val l = db.cartDao().getAll()
+                    val l = db.db.cartDao().getAll()
 
                     l.forEach {
                         Log.d("data", "$it")
                         arrayList.add(it)
+                        sum += it.total
                     }
 
-
-
                     withContext(Dispatchers.Main) {
-                        createRecycler(arrayList)
+                        //binding.tvTotal.text = "UGX. $sum"
+                        val x = createRecycler(arrayList, db)
+                        binding.tvTotal.text = x.toString()
                     }
 
 
@@ -81,10 +84,15 @@ class CartFragment : Fragment() {
 
     }
 
-    private fun createRecycler(list: ArrayList<CartModel>) {
+    private suspend fun createRecycler(list: ArrayList<CartModel>, db: DBBuilder): Int  {
         val myAdapter = AddToCartAdapter(requireContext(), list)
         val recycler = binding.rvCart
         recycler.adapter = myAdapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
+        return myAdapter.getSum(db)
+    }
+
+    suspend fun getTotal(list: ArrayList<CartModel>) {
+        val myAdapter = AddToCartAdapter(requireContext(), list)
     }
 }
