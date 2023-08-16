@@ -2,8 +2,34 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.MaamasDailyCookie" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimary">@color/primary</item>
     </style>
 
     <style name="Theme.MaamasDailyCookie" parent="Base.Theme.MaamasDailyCookie" />
+
+
+    <style name="Theme.splash" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/bg_color</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#FF202020</item>
+        <item name="colorOnSecondary">#fff</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/bg_color</item>
+        <!-- Customize your theme here. -->
+
+    </style>
+
+
+    <style name="Theme.welcome" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#FFA451</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#FFA451</item>
+        <item name="colorOnSecondary">#FFA451</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#FFA451</item>
+        <!-- Customize your theme here. -->
+
+    </style>
 </resources>

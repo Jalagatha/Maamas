@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:title="@string/payment"
+        android:icon="@drawable/credit_card"
+        android:id="@+id/paymentFragment" />
+    <item
+        android:title="@string/item"
+        android:icon="@drawable/baseline_category_24"
+        android:id="@+id/itemsFragment" />
+
+    <item
+        android:title="@string/cart"
+        android:icon="@drawable/bottom_btn2"
+        android:id="@+id/cartFragment" />
+    <item
+        android:title="@string/accounts"
+        android:icon="@drawable/baseline_person_24"
+        android:id="@+id/accountsFragment" />
+
+    <item
+        android:title="@string/wallets"
+        android:icon="@drawable/baseline_account_balance_wallet_24"
+        android:id="@+id/walletFragment" />
+
+
+</menu>

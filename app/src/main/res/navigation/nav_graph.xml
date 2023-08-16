@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/itemsFragment">
+
+    <fragment
+        android:id="@+id/itemsFragment"
+        android:name="com.ivanj.maamasdailycookie.ui.ItemsFragment"
+        android:label="fragment_items"
+        tools:layout="@layout/fragment_items">
+        <action
+            android:id="@+id/action_itemsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.ivanj.maamasdailycookie.ui.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.ivanj.maamasdailycookie.ui.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/accountsFragment"
+        android:name="com.ivanj.maamasdailycookie.ui.AccountsFragment"
+        android:label="fragment_accounts"
+        tools:layout="@layout/fragment_accounts" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.ivanj.maamasdailycookie.ui.WalletFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" />
+</navigation>
