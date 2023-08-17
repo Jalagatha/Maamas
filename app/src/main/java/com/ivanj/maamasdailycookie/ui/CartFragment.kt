@@ -26,7 +26,9 @@ class CartFragment : Fragment() {
     private lateinit var _binding: FragmentCartBinding
     private val binding get() = _binding
 
+
     private var sum = 0
+    private var amountTo = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,6 +47,15 @@ class CartFragment : Fragment() {
         binding.tvBackCart.setOnClickListener {
             findNavController().navigate(R.id.itemsFragment)
         }
+        binding.btnCheckOut.setOnClickListener {
+            amountTo = (0.15 * sum).toInt()
+            val bundle: Bundle = Bundle()
+            bundle.putString("amountTo", amountTo.toString())
+            Log.d("sum", sum.toString())
+            Log.d("amount", amountTo.toString())
+            findNavController().navigate(R.id.walletFragment, bundle)
+
+        }
 
         val db = DBBuilder(requireContext())
         binding.apply {
@@ -60,12 +71,13 @@ class CartFragment : Fragment() {
                         Log.d("data", "$it")
                         arrayList.add(it)
                         sum += it.total
+
                     }
 
                     withContext(Dispatchers.Main) {
-                        //binding.tvTotal.text = "UGX. $sum"
+                        binding.tvTotal.text = "UGX. $sum"
                         val x = createRecycler(arrayList, db)
-                        binding.tvTotal.text = x.toString()
+//                        binding.tvTotal.text = x.toString()
                     }
 
 

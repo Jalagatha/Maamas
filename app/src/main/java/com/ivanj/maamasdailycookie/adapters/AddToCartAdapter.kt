@@ -98,7 +98,7 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
                 list_items.remove(list_items[position])
                 Log.d("Remain 2", "$list_items")
                 notifyDataSetChanged()
-                notifyItemRangeRemoved(position, list_items.size)
+//                notifyItemRangeRemoved(position, list_items.size)
 
             }
 

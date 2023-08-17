@@ -3,7 +3,7 @@ package com.ivanj.maamasdailycookie.model
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@androidx.room.Database(entities = [CookieModelClassItem::class, CartModel::class], version = 1)
+@androidx.room.Database(entities = [CookieModelClassItem::class, CartModel::class], version = 2)
 abstract class Database : RoomDatabase() {
     abstract fun cookieDao(): CookieDao
 

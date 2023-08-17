@@ -62,4 +62,9 @@
     <string name="pay_pay_text">PayPal</string>
     <string name="bnk">Bank Transfer</string>
     <string name="mtn">MtnMoMo Pay</string>
+    <string name="story">"I am excited,\nMDC made my life\neasy \nI am happy."</string>
+    <string name="nakya">Nankya Fairuz</string>
+    <string name="n">Nankya Fairuz</string>
+    <string name="ush">UGX 100,000</string>
+    <string name="impact">Impact Wallet</string>
 </resources>
