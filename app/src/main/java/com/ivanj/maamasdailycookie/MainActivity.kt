@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
 
             val s = binding.splash
             s.alpha = 0f
-            s.animate().setDuration(4000).alpha(1f).withEndAction {
+            s.animate().setDuration(3000).alpha(1f).withEndAction {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                val intent = Intent(this@MainActivity, Login::class.java)
+                val intent = Intent(this@MainActivity, Register::class.java)
                 startActivity(intent)
                 finish()
             }
