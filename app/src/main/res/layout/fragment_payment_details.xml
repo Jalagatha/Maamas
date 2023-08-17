@@ -6,80 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".ui.PaymentDetailsFragment">
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/bank_layout"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center|start"
-        android:paddingStart="5dp"
-        android:text="@string/mtn"
-        android:textColor="@color/g_black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ibMtnMM"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ibBT"
-        app:layout_constraintTop_toTopOf="@+id/ibMtnMM" />
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+        tools:layout_editor_absoluteX="10dp">
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center|start"
-        android:paddingStart="5dp"
-        android:text="@string/pay_pay_text"
-        android:textColor="@color/g_black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="@+id/imageButton3" />
+        <ImageButton
+            android:id="@+id/bank_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_account_balance_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center|start"
-        android:paddingStart="5dp"
-        android:text="@string/pay_pay_text"
-        android:textColor="@color/g_black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ibPayPal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ibPayPal"
-        app:layout_constraintTop_toTopOf="@+id/ibPayPal" />
+        <TextView
+            android:id="@+id/bank_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center|start"
+            android:text="@string/bnk"
+            android:textColor="@color/g_black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ibMtnMM"
-        android:layout_width="50dp"
+    <LinearLayout
+        android:id="@+id/paypal_layout"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/red"
-        android:scaleType="fitXY"
-        android:src="@drawable/momo_pay"
-        app:layout_constraintStart_toStartOf="@+id/ibBT"
-        app:layout_constraintTop_toBottomOf="@+id/ibBT"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_margin="10dp"
+        android:layout_marginTop="160dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/bank_layout"
+        tools:layout_editor_absoluteX="10dp">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="50dp"
+        <ImageButton
+            android:id="@+id/paypal_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerCrop"
+            android:src="@drawable/paypal"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/paypal_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center|start"
+            android:text="@string/pay_pay_text"
+            android:textColor="@color/g_black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/momo_layout"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerCrop"
-        android:src="@drawable/airtel_logo"
-        app:layout_constraintStart_toStartOf="@+id/ibMtnMM"
-        app:layout_constraintTop_toBottomOf="@+id/ibMtnMM"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/paypal_layout"
+        tools:layout_editor_absoluteX="10dp">
+
+        <ImageButton
+            android:id="@+id/mtn_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerCrop"
+            android:src="@drawable/momo_pay"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/momo_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center|start"
+            android:text="@string/mtn"
+            android:textColor="@color/g_black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
@@ -100,14 +119,13 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/nunito"
                 android:text="@string/payment_details_"
                 android:textColor="#FEFEFE"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvBackToAddress"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,8 +133,9 @@
                 android:id="@+id/tvBackToAddress"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/backbg"
+                android:gravity="center|start"
                 android:padding="10dp"
                 android:text="@string/back"
                 android:textColor="@color/g_black"
@@ -140,46 +159,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/ibBT"
-        android:layout_width="50dp"
+    <LinearLayout
+        android:id="@+id/airtel_layout"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:scaleType="centerCrop"
-        android:src="@drawable/baseline_account_balance_24"
-        app:layout_constraintStart_toStartOf="@+id/ibPayPal"
-        app:layout_constraintTop_toBottomOf="@+id/ibPayPal"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/momo_layout"
+        tools:layout_editor_absoluteX="1dp">
 
-    <ImageButton
-        android:id="@+id/ibPayPal"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerCrop"
-        android:src="@drawable/pay_pal_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerCrop"
+            android:src="@drawable/airtel_logo"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center|start"
-        android:paddingStart="5dp"
-        android:text="@string/bnk"
-        android:textColor="@color/g_black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ibBT"
-        app:layout_constraintTop_toTopOf="@+id/ibBT" />
+        <TextView
+            android:id="@+id/airtel_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center|start"
+            android:text="@string/airtel"
+            android:textColor="@color/g_black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

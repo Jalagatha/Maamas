@@ -23,6 +23,28 @@ data class CartModel(
     var quantity: Int = 0,
     var total:Int = 0
 )
+
+@Entity
+data class LocationModel(
+    @PrimaryKey(autoGenerate = true)
+    val lid: Int? = null,
+    var name: String = "",
+    var address:String = "",
+    var city:String = "",
+    var phone:String = "",
+    var note:String = ""
+)
+
+@Entity
+data class PaymentModel(
+    @PrimaryKey(autoGenerate = true)
+    val pid: Int? = null,
+    var name: String = "",
+    var number:String = "",
+    var date:String = "",
+    var ccv:String = "",
+)
+
 //{
 //    fun increment() : Int {
 //        return quantity + 1

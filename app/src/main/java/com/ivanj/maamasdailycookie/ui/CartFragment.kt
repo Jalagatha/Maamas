@@ -48,12 +48,16 @@ class CartFragment : Fragment() {
             findNavController().navigate(R.id.itemsFragment)
         }
         binding.btnCheckOut.setOnClickListener {
-            amountTo = (0.15 * sum).toInt()
-            val bundle: Bundle = Bundle()
-            bundle.putString("amountTo", amountTo.toString())
-            Log.d("sum", sum.toString())
-            Log.d("amount", amountTo.toString())
-            findNavController().navigate(R.id.walletFragment, bundle)
+            if(sum > 0) {
+                amountTo = (0.15 * sum).toInt()
+                val bundle: Bundle = Bundle()
+                //bundle.putString("amountTo", amountTo.toString())
+                bundle.putString("amountTo", sum.toString())
+                Log.d("sum", sum.toString())
+                Log.d("amount", amountTo.toString())
+                //findNavController().navigate(R.id.walletFragment, bundle)
+                findNavController().navigate(R.id.paymentFragment, bundle)
+            }
 
         }
 

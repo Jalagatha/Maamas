@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_add_pay"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/buttons_bg"
+        android:fontFamily="@font/nunito"
+        android:text="@string/add_pay"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_date"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/c_ccv"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:fontFamily="@font/nunito"
+        android:hint="@string/c_cvv"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="#86869E"
+        android:textColorHint="#d5d5d5"
+        android:textSize="17sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="@string/card_ccv"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/c_ccv"
+        app:layout_constraintTop_toBottomOf="@+id/c_holder_number" />
+
+    <EditText
+        android:id="@+id/c_date"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:fontFamily="@font/nunito"
+        android:hint="@string/c_date"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="#86869E"
+        android:textColorHint="#d5d5d5"
+        android:textSize="17sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="@string/date"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/c_holder_number"
+        app:layout_constraintTop_toBottomOf="@+id/c_holder_number" />
+
+    <EditText
+        android:id="@+id/c_holder_number"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:fontFamily="@font/nunito"
+        android:hint="@string/c_number"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="#86869E"
+        android:textColorHint="#d5d5d5"
+        android:textSize="17sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="@string/card_number"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/c_holder_name"
+        tools:layout_editor_absoluteX="23dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="@string/card_name"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="23dp" />
+
+    <EditText
+        android:id="@+id/c_holder_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:fontFamily="@font/nunito"
+        android:hint="@string/c_name"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="#86869E"
+        android:textColorHint="#d5d5d5"
+        android:textSize="17sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
