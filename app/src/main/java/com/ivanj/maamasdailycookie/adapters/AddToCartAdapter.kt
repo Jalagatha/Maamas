@@ -15,10 +15,14 @@ import com.ivanj.maamasdailycookie.model.DBBuilder
 import com.ivanj.maamasdailycookie.ui.CartFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel>) :
     RecyclerView.Adapter<AddToCartAdapter.Cart>() {
+
+    var sum = 0
     class Cart(item: View) : RecyclerView.ViewHolder(item) {
         val title: TextView = item.findViewById(R.id.item_Name)
         val amount: TextView = item.findViewById(R.id.cartPrice)
@@ -27,7 +31,6 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
         val removeBtn: ImageView = item.findViewById(R.id.removeBtn)
         val addBtn: ImageView = item.findViewById(R.id.addButton)
         val clear: ImageView = item.findViewById(R.id.clearBtn)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Cart {
@@ -55,9 +58,12 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
 
             val scope = CoroutineScope(Dispatchers.IO)
             scope.launch {
+                val total = quantity * list_items[position].cookie.price.toInt()
                 val model =
-                    CartModel(list_items[position].cid, list_items[position].cookie, quantity)
+                    CartModel(list_items[position].cid, list_items[position].cookie, quantity, total)
                 db.db.cartDao().updateCookie(model)
+
+                getSum(db)
             }
 
             holder.qty.text = quantity.toString()
@@ -69,9 +75,12 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
 
                 val scope = CoroutineScope(Dispatchers.IO)
                 scope.launch {
+                    val total = quantity * list_items[position].cookie.price.toInt()
                     val model =
-                        CartModel(list_items[position].cid, list_items[position].cookie, quantity)
+                        CartModel(list_items[position].cid, list_items[position].cookie, quantity, total)
                     db.db.cartDao().updateCookie(model)
+
+                    getSum(db)
                 }
             } else {
 
@@ -83,12 +92,14 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
                     db.db.cartDao().deleteCookie(list_items[position].cid ?: 1)
                     val l2 = db.db.cartDao().getAll()
                     Log.d("data 2", "$l2")
+                    getSum(db)
                 }
                 Log.d("Remain 1", "$list_items")
                 list_items.remove(list_items[position])
                 Log.d("Remain 2", "$list_items")
                 notifyDataSetChanged()
-                notifyItemRangeRemoved(position, list_items.size)
+//                notifyItemRangeRemoved(position, list_items.size)
+
             }
 
             holder.qty.text = quantity.toString()
@@ -107,10 +118,12 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
                 db.db.cartDao().deleteCookie(list_items[position].cid ?: 1)
                 val l2 = db.db.cartDao().getAll()
                 Log.d("data 2", "$l2")
-                list_items.clear()
-                db.db.cartDao().getAll().forEach {
-                    list_items.add(it)
+                list_items.remove(list_items[position])
+                withContext(Dispatchers.Main) {
+                    notifyDataSetChanged()
+                    getSum(db)
                 }
+
             }
 
             //notifyDataSetChanged()
@@ -122,6 +135,21 @@ class AddToCartAdapter(val context: Context, var list_items: ArrayList<CartModel
             .into(holder.image)
 
 
+
+
+
+    }
+
+    suspend fun getSum(db: DBBuilder): Int {
+        val scope = CoroutineScope(Dispatchers.IO)
+        val x = scope.async {
+            db.db.cartDao().getAll().forEach {
+                //list_items.add(it)
+                sum  += it.cookie.price.toInt()
+            }
+            sum
+        }
+        return x.await()
     }
 
     fun refresh(data: List<CartModel>) {

@@ -25,6 +25,7 @@ class CookieAdapter(val context: Context, val list: ArrayList<CookieModelClassIt
         val rating: ImageView = view.findViewById(R.id.iv_favorites)
         val price: TextView = view.findViewById(R.id.tv_price)
         val addItem: ImageView = view.findViewById(R.id.iv_add)
+        val success: ImageView = view.findViewById(R.id.addSuccessful)
 
 
     }
@@ -55,9 +56,12 @@ class CookieAdapter(val context: Context, val list: ArrayList<CookieModelClassIt
 
             val scope = CoroutineScope(Dispatchers.IO)
             scope.launch {
-                val model = CartModel(null, list[position], 1)
+                val model = CartModel(null, list[position], 1, list[position].price.toInt())
                 db.db.cartDao().insertCookie(model)
+
             }
+            holder.addItem.visibility = View.GONE
+            holder.success.visibility = View.VISIBLE
 
         }
     }

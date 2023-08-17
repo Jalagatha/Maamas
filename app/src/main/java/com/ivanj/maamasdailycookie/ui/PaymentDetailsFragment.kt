@@ -1,60 +1,67 @@
 package com.ivanj.maamasdailycookie.ui
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ivanj.maamasdailycookie.R
+import com.ivanj.maamasdailycookie.databinding.BottomSheetBankLayoutBinding
+import com.ivanj.maamasdailycookie.databinding.FragmentPaymentDetailsBinding
+import com.ivanj.maamasdailycookie.model.DBBuilder
+import com.ivanj.maamasdailycookie.model.PaymentModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PaymentDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PaymentDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var _binding: FragmentPaymentDetailsBinding
+    private val binding get() = _binding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment_details, container, false)
+        _binding = FragmentPaymentDetailsBinding.inflate(layoutInflater)
+        val v = _binding.root
+
+        return v
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PaymentDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PaymentDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.tvBackToAddress.setOnClickListener {
+            findNavController().navigate(R.id.paymentFragment)
+        }
+
+        binding.bankLayout.setOnClickListener {
+            val dialog = BottomSheetDialog(requireContext())
+
+            val v = BottomSheetBankLayoutBinding.inflate(layoutInflater)
+            dialog.setContentView(v.root)
+
+            val name = v.cHolderName.text.toString()
+            val number = v.cHolderNumber.text.toString()
+            val date = v.cDate.text.toString()
+            val ccv = v.cCcv.text.toString()
+
+            v.btnAddPay.setOnClickListener {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val model = PaymentModel(1, name, number, date, ccv)
+                    DBBuilder(requireContext()).db.paymentDao().insertPayment(model)
                 }
+                dialog.dismiss()
+                findNavController().navigate(R.id.paymentFragment)
+
             }
+            dialog.setCancelable(false)
+            dialog.show()
+
+        }
+
     }
 }

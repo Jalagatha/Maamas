@@ -26,14 +26,13 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/nunito"
                 android:text="@string/checkout"
                 android:textColor="#FEFEFE"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvBackPay"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,8 +42,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:background="@drawable/backbg"
-                android:padding="10dp"
                 android:drawableStart="@drawable/back_arr"
+                android:gravity="center|start"
+                android:padding="10dp"
                 android:text="@string/back"
                 android:textColor="@color/g_black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -58,109 +58,94 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/quicksand_medium"
         android:text="@string/ship_address"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:cardElevation="10dp"
+        android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/location_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="TextView"
+                android:fontFamily="@font/quicksand_medium"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/no_location"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textView11"
-                app:layout_constraintStart_toStartOf="@+id/textView11"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="TextView"
-                android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/change_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="TextView"
-                android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView10"
-                app:layout_constraintStart_toStartOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="TextView"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/change"
                 android:textColor="#F44336"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/quicksand_medium"
         android:text="@string/pay"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView6" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/change_pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/quicksand_medium"
         android:text="@string/change"
         android:textColor="#F44336"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView6" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/pay_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         tools:layout_editor_absoluteX="1dp">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/add_cc" />
+            android:layout_width="45dp"
+            android:layout_height="45dp" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/pay_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/quicksand_medium"
             android:gravity="center|start"
-            android:text="TextView" />
+            android:text="@string/no_pay_method"
+            android:textSize="17sp" />
     </LinearLayout>
 
     <TextView
@@ -168,15 +153,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/quicksand_medium"
         android:text="@string/delivery"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/pay_layout" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView7"
+        android:id="@+id/safeboda"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18">
@@ -185,7 +173,8 @@
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/add" />
+            android:padding="20dp"
+            android:src="@drawable/sb_logo_horizontal" />
     </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.Guideline
@@ -196,9 +185,10 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/personal"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textView18">
@@ -207,7 +197,7 @@
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/add" />
+            android:src="@drawable/traveler" />
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -216,7 +206,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/cardView7"
+        app:layout_constraintTop_toBottomOf="@+id/safeboda"
         tools:layout_editor_absoluteX="1dp">
 
         <TextView
@@ -224,6 +214,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_medium"
             android:text="@string/order"
             android:textSize="20sp" />
 
@@ -232,6 +223,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_medium"
             android:gravity="end"
             android:text="TextView"
             android:textSize="20sp" />
@@ -251,6 +243,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_medium"
             android:text="@string/delivery_s"
             android:textSize="20sp" />
 
@@ -259,8 +252,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_medium"
             android:gravity="end"
-            android:text="TextView"
+            android:text="@string/negotiate"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -278,14 +272,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_medium"
             android:text="@string/summary"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/summary"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_medium"
             android:gravity="end"
             android:text="TextView"
             android:textSize="20sp" />
