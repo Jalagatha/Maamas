@@ -28,7 +28,7 @@
     <string name="cart">Cart</string>
     <string name="hottest">Hottest</string>
     <string name="image">image</string>
-    <string name="welcome_message">Healthy tasty cookies for babies and breastfeeding mothers</string>
+    <string name="welcome_message">Healthy tasty cookies for babies and breastfeeding mothers\nNourish every bite and Empower every sale</string>
     <string name="button">Next\n</string>
     <string name="payment">Payment</string>
     <string name="accounts">Accounts</string>
@@ -67,22 +67,7 @@
     <string name="n">Nankya Fairuz</string>
     <string name="ush">UGX 100,000</string>
     <string name="impact">Impact Wallet</string>
-    <string name="city">City</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="location">Sonde\nMasaka Road\nMasaka</string>
-    <string name="negotiate">Negotiable</string>
-    <string name="no_location">No Location Specified</string>
-    <string name="no_pay_method">No Payment Method Selected</string>
-    <string name="note">Note to Delivery Man</string>
-    <string name="save_address">Save Address</string>
-    <string name="airtel">Airtel</string>
-    <string name="card_name">Card Holders Name</string>
-    <string name="card_number">Card Number</string>
-    <string name="date">Date</string>
-    <string name="card_ccv">CCV</string>
-    <string name="c_name">Ivan Ojok</string>
-    <string name="c_number">1234 5678 91023 1234</string>
-    <string name="c_date">03 / 23</string>
-    <string name="c_cvv">000</string>
-    <string name="add_pay">Add Payment</string>
+    <string name="mail_s">eg example@gmail.com</string>
+    <string name="f_">eg +256 *** *** ***</string>
+    <string name="p____">create password </string>
 </resources>

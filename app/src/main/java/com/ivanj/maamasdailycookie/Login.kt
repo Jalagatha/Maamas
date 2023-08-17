@@ -15,13 +15,14 @@ class Login : AppCompatActivity() {
 
         binding.apply {
             binding.login.setOnClickListener {
-                startActivity(Intent(this@Login, Welcome::class.java))
+                startActivity(Intent(this@Login, Login::class.java))
                 finish()
             }
 
-            binding.tvNoAccount.setOnClickListener {
 
-                startActivity(Intent(this@Login, Register::class.java))
+
+            binding.LoginBtn.setOnClickListener {
+                startActivity(Intent(this@Login, Welcome::class.java))
             }
         }
 
