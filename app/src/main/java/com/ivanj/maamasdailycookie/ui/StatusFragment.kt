@@ -35,5 +35,8 @@ class StatusFragment : Fragment() {
             findNavController().navigate(R.id.cartFragment)
         }
 
+        binding.button.setOnClickListener {
+            findNavController().navigate(R.id.walletFragment)
+        }
     }
 }

@@ -79,11 +79,11 @@ class PaymentFragment : Fragment() {
             val arrayList = ArrayList<CartModel>()
             val list = db.cartDao().getAll()
 
-            var sum = 0
-                list.forEach {
-                    arrayList.add(it)
-                    sum += it.total
-                }
+            var sum =0
+            list.forEach {
+                 arrayList.add(it)
+                 sum += it.total
+            }
 
             withContext(Dispatchers.Main) {
                 if (l.isNotEmpty()) {
