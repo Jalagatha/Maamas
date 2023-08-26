@@ -7,9 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.ivanj.maamasdailycookie.R
 import com.ivanj.maamasdailycookie.databinding.FragmentWalletBinding
+import com.ivanj.maamasdailycookie.model.CartModel
+import com.ivanj.maamasdailycookie.model.DBBuilder
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class WalletFragment : Fragment() {
@@ -32,16 +38,32 @@ class WalletFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvBackPayT.setOnClickListener {
-            findNavController().navigate(R.id.cartFragment)
+            findNavController().navigate(R.id.itemsFragment)
         }
 
         binding.apply {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val db = DBBuilder(requireContext()).db
+
+                val arrayList = ArrayList<CartModel>()
+                val list = db.cartDao().getAll()
+
+                var sum = 0
+                list.forEach {
+                    arrayList.add(it)
+                    sum += it.total
+                }
+
+                withContext(Dispatchers.Main) {
+                    binding.tvWallet.text = (0.15*sum).toString()
+                }
+            }
 
 //            val b=Bundle()
-            val x = requireArguments().getString("amountTo")
-
-            Log.d(x, "value $x")
-            binding.tvWallet.text = x
+//            val x = requireArguments().getString("amountTo")
+//
+//            Log.d(x, "value $x")
+//            binding.tvWallet.text = x
 
 
         }
