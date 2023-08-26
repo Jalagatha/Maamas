@@ -8,4 +8,5 @@ interface Api {
 
     @GET("/getcookies.php")
     suspend fun getCookies(): CookieModelClass
+
 }

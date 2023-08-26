@@ -81,7 +81,7 @@
                 android:layout_margin="10dp"
                 android:fontFamily="@font/quicksand_medium"
                 android:lineSpacingExtra="10sp"
-                android:text="@string/no_location"
+                android:text="No Location"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
             android:layout_margin="10dp"
             android:fontFamily="@font/quicksand_medium"
             android:gravity="center|start"
-            android:text="@string/no_pay_method"
+            android:text="No Pay Method"
             android:textSize="17sp" />
     </LinearLayout>
 
@@ -254,7 +254,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/quicksand_medium"
             android:gravity="end"
-            android:text="@string/negotiate"
+            android:text="Negotiate"
             android:textSize="20sp" />
     </LinearLayout>
 
